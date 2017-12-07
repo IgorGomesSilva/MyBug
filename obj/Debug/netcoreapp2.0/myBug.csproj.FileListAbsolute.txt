@@ -1,0 +1,10 @@
+C:\Users\higor\Documents\Cedro\myBug\bin\Debug\netcoreapp2.0\myBug.deps.json
+C:\Users\higor\Documents\Cedro\myBug\bin\Debug\netcoreapp2.0\myBug.runtimeconfig.json
+C:\Users\higor\Documents\Cedro\myBug\bin\Debug\netcoreapp2.0\myBug.runtimeconfig.dev.json
+C:\Users\higor\Documents\Cedro\myBug\bin\Debug\netcoreapp2.0\myBug.dll
+C:\Users\higor\Documents\Cedro\myBug\bin\Debug\netcoreapp2.0\myBug.pdb
+C:\Users\higor\Documents\Cedro\myBug\obj\Debug\netcoreapp2.0\myBug.csproj.CoreCompileInputs.cache
+C:\Users\higor\Documents\Cedro\myBug\obj\Debug\netcoreapp2.0\myBug.AssemblyInfoInputs.cache
+C:\Users\higor\Documents\Cedro\myBug\obj\Debug\netcoreapp2.0\myBug.AssemblyInfo.cs
+C:\Users\higor\Documents\Cedro\myBug\obj\Debug\netcoreapp2.0\myBug.dll
+C:\Users\higor\Documents\Cedro\myBug\obj\Debug\netcoreapp2.0\myBug.pdb
