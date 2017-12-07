@@ -8,3 +8,4 @@ C:\Users\higor\Documents\Cedro\myBug\obj\Debug\netcoreapp2.0\myBug.AssemblyInfoI
 C:\Users\higor\Documents\Cedro\myBug\obj\Debug\netcoreapp2.0\myBug.AssemblyInfo.cs
 C:\Users\higor\Documents\Cedro\myBug\obj\Debug\netcoreapp2.0\myBug.dll
 C:\Users\higor\Documents\Cedro\myBug\obj\Debug\netcoreapp2.0\myBug.pdb
+C:\Users\higor\Documents\Cedro\myBug\obj\Debug\netcoreapp2.0\myBug.csprojResolveAssemblyReference.cache

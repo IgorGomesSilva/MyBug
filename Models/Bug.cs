@@ -5,6 +5,11 @@ namespace myBug.Models
 {
     public class Bug
     {
+        public Bug()
+        {
+            DataRegistro = DateTime.Now;
+        }
+
         [Key]
         public int Id { get; set; }
 
