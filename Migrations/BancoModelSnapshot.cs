@@ -29,11 +29,11 @@ namespace myBug.Migrations
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasMaxLength(60);
+                        .HasMaxLength(50);
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasMaxLength(50);
+                        .HasMaxLength(40);
 
                     b.Property<string>("Produto")
                         .IsRequired()
@@ -45,7 +45,7 @@ namespace myBug.Migrations
 
                     b.Property<string>("Titulo")
                         .IsRequired()
-                        .HasMaxLength(20);
+                        .HasMaxLength(30);
 
                     b.HasKey("Id");
 
