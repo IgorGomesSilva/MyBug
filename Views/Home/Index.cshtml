@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-sm-12 col-lg-12">
                 <h2 class="h2">
-                    Lista de Bugs <small>Aqui estão todos os Bugs Cadastrados</small>
+                    Lista de Bugs <br /> <small>Aqui estão todos os Bugs Cadastrados</small>
                 </h2>
             </div>
         </div>
@@ -17,40 +17,55 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-sm-1">
+                <form asp-action="Delete" asp-controller="Home" method="delete">
+                    @foreach (var item in ViewBag.Bugs as List<Bug>)
+                    {
+                        <input type="hidden" name="id" value="@item.Id" />
+                        <br />
+                        <button type="submit"> Deletar @item.Id </button>
+                        <br /> 
+                     }
+
+             </form>  
+        </div>
+        <div class="col-sm-11">
             <div class="well well-sm">
                 <form asp-action="Cadastrar" asp-controller="Bug" method="post">
-                    <div class="row">
-                        <div class="col-md-6">
-                           @foreach ( var item in ViewBag.Bugs as List<Bug>)
-                           {
                             <table class="table">
                                 <thead>
                                     <tr>
+                                        <th> Id </th>
                                         <th> Titulo </th>
                                         <th> Severidade</th>
                                         <th> Email </th>
                                         <th> Descricao </th>
                                         <th> Produto </th>
                                         <th> Data </th>
+                                        <th> Editar </th>
                                     </tr>
                                 </thead>
+                                @foreach (var item in ViewBag.Bugs as List<Bug>)
+                            {
                                 <tbody>
                                     <tr>
+                                        <td>@item.Id</td>
                                         <td>@item.Titulo</td>
                                         <td>@item.Severidade</td>
                                         <td>@item.Email</td>
                                         <td>@item.Descricao</td>
                                         <td>@item.Produto</td>
                                         <td>@item.DataRegistro</td>
+                                        <td>
+                                            <a href="/Bug/Index/@item.Id"> Editar</a>
+                                        </td>
                                     </tr>
                                 </tbody>
+                        }
                             </table>
-
-                           }
+                    </form>
+                        </div>
                     </div>
-                </form>
+
             </div>
         </div>
-    </div>
-</div>

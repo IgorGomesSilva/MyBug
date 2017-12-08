@@ -26,6 +26,16 @@ namespace myBug.Controllers
             return View();
         }
 
+        public IActionResult Delete(int id)
+        {
+            var bugSelected = _banco.Bugs.FirstOrDefault(x => x.Id == id);
+            _banco.Bugs.Remove(bugSelected);
+            _banco.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+
         public IActionResult Bug()
         {
 
