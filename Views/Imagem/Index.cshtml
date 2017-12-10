@@ -1,0 +1,32 @@
+﻿@model myBug.Models.Imagem
+
+@using myBug.Models
+
+@{
+    ViewData["Title"] = "Upload Imagens";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<form asp-action="Upload" asp-controller="Imagem" method="post" enctype="multipart/form-data">
+    <input type="file" name="myImagem" /> <br /> <br />
+
+    <input type="submit" value="Salvar" />
+
+</form>
+
+<label> @ViewData["fileLocation"] </label>
+<img src="@ViewData["fileLocation"]" />
+
+
+<table>
+    <tr>
+        @foreach (var item in ViewBag.Imagens as List<Imagem>)
+        {
+            <td>
+              <img src="@item.ImagName" width="200" height="150" />
+            </td>
+
+        }
+    </tr>
+</table>

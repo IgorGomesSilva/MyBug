@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using myBug.Data;
 using myBug.Models;
+using Newtonsoft.Json;
 
 namespace myBug.Controllers
 {
@@ -14,13 +18,14 @@ namespace myBug.Controllers
 
         public BugController(Banco banco)
         {
+            
+            BuscaAPI();
             _banco = banco;
         }
 
         public IActionResult Index(int id)
         {
             var bugSelected = _banco.Bugs.FirstOrDefault(x => x.Id == id);
-
 
             return View(bugSelected);
         }
@@ -40,7 +45,6 @@ namespace myBug.Controllers
                 bugSaved.Descricao = bug.Email;
                 bugSaved.DataRegistro = bug.DataRegistro;
                 bugSaved.Email = bug.Email;
-                bugSaved.Produto = bug.Produto;
                 _banco.Bugs.Update(bugSaved);
 
             }
@@ -50,7 +54,19 @@ namespace myBug.Controllers
             return RedirectToAction("Index");
         }
 
+        public async Task BuscaAPI()
+         {
+             using (HttpClient client = new HttpClient())
+             {
 
+                 client.BaseAddress = new Uri("https://dev.people.com.ai/bug/api/v3/products");
+                 var resposta = await client.GetAsync("");
 
+                 string dados = await resposta.Content.ReadAsStringAsync();
+                Console.WriteLine(dados);
+                                
+             }
+         }
     }
+
 }

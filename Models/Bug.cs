@@ -1,10 +1,12 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Net.Http;
 
 namespace myBug.Models
 {
     public class Bug
     {
+
         public Bug()
         {
             DataRegistro = DateTime.Now;
@@ -27,7 +29,6 @@ namespace myBug.Models
 
         public DateTime DataRegistro { get; set; }
 
-        [Required]
-        public string Produto { get; set; }
+        public string Comentario { get; set; }
     }
 }

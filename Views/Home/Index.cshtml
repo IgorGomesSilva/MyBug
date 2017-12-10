@@ -40,13 +40,12 @@
                                         <th> Severidade</th>
                                         <th> Email </th>
                                         <th> Descricao </th>
-                                        <th> Produto </th>
                                         <th> Data </th>
                                         <th> Editar </th>
                                     </tr>
                                 </thead>
                                 @foreach (var item in ViewBag.Bugs as List<Bug>)
-                            {
+                                {
                                 <tbody>
                                     <tr>
                                         <td>@item.Id</td>
@@ -54,18 +53,16 @@
                                         <td>@item.Severidade</td>
                                         <td>@item.Email</td>
                                         <td>@item.Descricao</td>
-                                        <td>@item.Produto</td>
                                         <td>@item.DataRegistro</td>
                                         <td>
                                             <a href="/Bug/Index/@item.Id"> Editar</a>
                                         </td>
                                     </tr>
                                 </tbody>
-                        }
+                                }
                             </table>
-                    </form>
-                        </div>
-                    </div>
-
+                          </form>
+                   </div>
+               </div>
             </div>
         </div>

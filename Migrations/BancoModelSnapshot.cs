@@ -25,19 +25,18 @@ namespace myBug.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Comentario")
+                        .HasMaxLength(200);
+
                     b.Property<DateTime>("DataRegistro");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasMaxLength(50);
+                        .HasMaxLength(150);
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(40);
-
-                    b.Property<string>("Produto")
-                        .IsRequired()
-                        .HasMaxLength(60);
 
                     b.Property<string>("Severidade")
                         .IsRequired()
@@ -50,6 +49,24 @@ namespace myBug.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Bugs");
+                });
+
+            modelBuilder.Entity("myBug.Models.Imagem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ImagName")
+                        .IsRequired()
+                        .HasMaxLength(120);
+
+                    b.Property<string>("ImgCaminho")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Imagens");
                 });
 #pragma warning restore 612, 618
         }
