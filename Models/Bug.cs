@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Net.Http;
 
 namespace myBug.Models
@@ -10,6 +12,7 @@ namespace myBug.Models
         public Bug()
         {
             DataRegistro = DateTime.Now;
+            Status = false;
         }
 
         [Key]
@@ -27,8 +30,12 @@ namespace myBug.Models
         [Required]
         public string Email { get; set; }
 
+        [Required]
+        public bool Status { get; set; }
+
+        public IEnumerable<Comentario> BugsComentario { get; set; }
+
         public DateTime DataRegistro { get; set; }
 
-        public string Comentario { get; set; }
     }
 }

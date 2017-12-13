@@ -11,7 +11,7 @@ using System;
 namespace myBug.Migrations
 {
     [DbContext(typeof(Banco))]
-    [Migration("20171210024908_Banco_MyBug")]
+    [Migration("20171213011956_Banco_MyBug")]
     partial class Banco_MyBug
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,9 +25,6 @@ namespace myBug.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Comentario")
-                        .HasMaxLength(200);
 
                     b.Property<DateTime>("DataRegistro");
 
@@ -43,6 +40,8 @@ namespace myBug.Migrations
                         .IsRequired()
                         .HasMaxLength(20);
 
+                    b.Property<bool>("Status");
+
                     b.Property<string>("Titulo")
                         .IsRequired()
                         .HasMaxLength(30);
@@ -50,6 +49,24 @@ namespace myBug.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Bugs");
+                });
+
+            modelBuilder.Entity("myBug.Models.Comentario", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("BugId");
+
+                    b.Property<string>("Desc_Comentario")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BugId");
+
+                    b.ToTable("Comentarios");
                 });
 
             modelBuilder.Entity("myBug.Models.Imagem", b =>
@@ -68,6 +85,13 @@ namespace myBug.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Imagens");
+                });
+
+            modelBuilder.Entity("myBug.Models.Comentario", b =>
+                {
+                    b.HasOne("myBug.Models.Bug")
+                        .WithMany("BugsComentario")
+                        .HasForeignKey("BugId");
                 });
 #pragma warning restore 612, 618
         }
